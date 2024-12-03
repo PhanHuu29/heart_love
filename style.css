@@ -1,0 +1,168 @@
+/* Phong cách chung */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: radial-gradient(circle, #ff9a9e, #fad0c4);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Trái tim 3D */
+  .heart {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: #ff4d6d;
+    transform: rotate(-45deg);
+    border-radius: 20%;
+    animation: beat 1s infinite ease-in-out;
+  }
+  
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: #ff4d6d;
+    border-radius: 50%;
+  }
+  
+  .heart::before {
+    top: -75px;
+    left: 0;
+  }
+  
+  .heart::after {
+    left: 75px;
+    top: 0;
+  }
+  
+  @keyframes beat {
+    0%, 100% {
+      transform: rotate(-45deg) scale(1);
+    }
+    50% {
+      transform: rotate(-45deg) scale(1.2);
+    }
+  }
+  
+  /* Hòm thư - cập nhật đẹp và cute hơn */
+  .mailbox {
+    width: 220px;
+    height: 110px;
+    background: linear-gradient(145deg, #ff99b3, #ff6699); /* Màu sắc gradient ngọt ngào */
+    border-radius: 15px; /* Bo tròn góc nhiều hơn */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), inset 0 0 8px rgba(0, 0, 0, 0.1); /* Bóng ngoài và bóng trong */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+  }
+  
+  /* Hiệu ứng hover */
+  .mailbox:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #ff4d6d, #ff3366); /* Chuyển màu khi hover */
+  }
+  
+  /* Hiệu ứng khi nhấn */
+  .mailbox:active {
+    transform: translateY(2px); /* Nút như bị nhấn xuống */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Hiệu ứng sóng sáng xung quanh */
+  .mailbox::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 20%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 15px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .mailbox:hover::before {
+    opacity: 1; /* Hiệu ứng sóng sáng khi hover */
+  }
+  
+  /* Chữ trong hòm thư */
+  .mailbox p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* Thiệp */
+  .card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 10;
+    opacity: 0;
+  }
+  
+  .card-content h2 {
+    margin: 0 0 10px;
+    color: #ff4d6d;
+    font-size: 24px;
+  }
+  
+  .card-content p {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .card-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background: #ff4d6d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card-content button:hover {
+    background: #e0435c;
+  }
+  
+  /* Hiển thị thiệp */
+  .card.open {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
